@@ -15,10 +15,10 @@ class FormateTxt:
             try:
                 caminho_saida = processar_arquivos(
                     self.app.caminho_arquivo,
-                    self.app.separador_var.get(),
-                    int(self.app.campo_var.get()),
-                    self.app.num_var.get(),
-                    self.app.id_var.get()
+                    self.app.separador_var_edit.get(),
+                    int(self.app.campo_var_edit.get()),
+                    self.app.num_var_edit.get(),
+                    self.app.id_var_edit.get()
                 )
 
                 self.app.process_status.config(text="Processado com sucesso")
