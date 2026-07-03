@@ -64,20 +64,22 @@ class App(ttk.Frame):
 
         self.drop_label.drop_target_register(DND_FILES)
         self.drop_label.dnd_bind('<<Drop>>', self.drop)
+        print(self.drop)
+        
 
     def _build_process_tab(self):
         frame = ttk.Frame(self.tab_process)
         frame.pack(pady=20)
 
-        self.separador_var = tk.StringVar(value="")
-        self.campo_var = tk.StringVar(value="")
-        self.num_var = tk.StringVar(value="")
-        self.id_var = tk.StringVar(value="")
+        self.separador_var_edit = tk.StringVar(value="")
+        self.campo_var_edit = tk.StringVar(value="")
+        self.num_var_edit = tk.StringVar(value="")
+        self.id_var_edit = tk.StringVar(value="")
 
-        self._campo(frame, "Separador", self.separador_var)
-        self._campo(frame, "Índice do campo", self.campo_var)
-        self._campo(frame, "Novo valor", self.num_var)
-        self._campo(frame, "ID da linha", self.id_var)
+        self._campo(frame, "Separador", self.separador_var_edit)
+        self._campo(frame, "Índice do campo", self.campo_var_edit)
+        self._campo(frame, "Novo valor", self.num_var_edit)
+        self._campo(frame, "ID da linha", self.id_var_edit)
         formater = FormateTxt(self)
         ttk.Button(
             frame,
@@ -92,20 +94,20 @@ class App(ttk.Frame):
         frame = ttk.Frame(self.tab_delete)
         frame.pack(pady=20)
 
-        self.separador_var = tk.StringVar(value="|")
-        self.campo_var = tk.StringVar(value="2")
-        self.num_var = tk.StringVar(value="2")
-        self.id_var = tk.StringVar(value="D100")
+        self.separador_var = tk.StringVar(value="")
+        self.campo_var = tk.StringVar(value="")
+        self.num_var = tk.StringVar(value="")
+        self.id_var = tk.StringVar(value="")
 
         self._campo(frame, "Separador", self.separador_var)
         self._campo(frame, "Índice do campo", self.campo_var)
         self._campo(frame, "Apagar apartir de qual indice?", self.num_var)
         self._campo(frame, "ID da linha", self.id_var)
-        formater = FormateTxt(self)
+        deleter = FormateTxt(self)
         ttk.Button(
             frame,
             text="Deletar",
-            command=formater.executar_delete
+            command=deleter.executar_delete
         ).pack(pady=15)
 
         self.process_status = ttk.Label(frame, text="")
